@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="rt_restaurant_tracker.NewMealPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:viewmodel="clr-namespace:rt_restaurant_tracker.ViewModels"
+             x:DataType="viewmodel:MainViewModel"
+             Title="NewMealPage">
+    <Frame BorderColor="DarkGray" CornerRadius="25" HasShadow="True" VerticalOptions="Fill" Margin="35, 35, 35, 0" Padding="0">
+        <VerticalStackLayout Margin="0" Padding="25" HorizontalOptions="Fill" Spacing="10" >
+            <Label
+                Style="{StaticResource TitleLabel}"
+                Text="Add a new review"
+                TextColor="{StaticResource Tertiary}"
+                FontAttributes="Bold"
+                Margin="0, 0, 0, 33"
+                HorizontalOptions="Center"/>
+
+            <VerticalStackLayout Spacing="5" HorizontalOptions="Fill">
+                <Label
+                    Text="Restaurant"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Text="Pick a restaurant"
+                    TextColor="Gray"
+                    HorizontalOptions="Start"/>
+                <Picker x:Name="rPicker"
+                        ItemsSource="{Binding AllRestaurants}"
+                        ItemDisplayBinding="{Binding RestaurantName}"
+                        Margin="25"
+                    HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="5" HorizontalOptions="Fill">
+                <Label
+                    Text="Meal"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Text="What did you order?"
+                    TextColor="Gray"
+                    HorizontalOptions="Start"/>
+                <Picker x:Name="mPicker"
+                        Margin="25"
+                    HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="5" HorizontalOptions="Fill">
+                <Label
+                    Text="Flavour rating"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Text="Rate the flavour of the meal you ordered (1-5)"
+                    TextColor="Gray"
+                    HorizontalOptions="Start"/>
+                <Border
+                        Stroke="{StaticResource Tertiary}"
+                        StrokeThickness="7"
+                        StrokeShape="RoundRectangle 40,40,40,40"
+                        Margin="10"
+                        Padding="0"
+                        HorizontalOptions="Fill" >
+
+                        <Entry x:Name="FlavourEntry"
+                            Placeholder="Flavour rating"
+                            Keyboard="Numeric"
+                            HorizontalTextAlignment="Center">
+                        </Entry>
+                    </Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="5" HorizontalOptions="Fill">
+                <Label
+                    Text="Price rating"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Text="Rate the price of the meal (1-5)"
+                    TextColor="Gray"
+                    HorizontalOptions="Start"/>
+                <Border
+                        Stroke="{StaticResource Tertiary}"
+                        StrokeThickness="7"
+                        StrokeShape="RoundRectangle 40,40,40,40"
+                        Margin="10"
+                        Padding="0"
+                        HorizontalOptions="Fill" >
+
+                        <Entry x:Name="PriceEntry"
+                            Placeholder="Price rating"
+                            Keyboard="Numeric"
+                            HorizontalTextAlignment="Center">
+                        </Entry>
+                    </Border>
+            </VerticalStackLayout>
+            <Button x:Name="NewReviewButton"
+                Text="Submit Review"
+                Margin="25"
+                Style="{StaticResource TealButton}"/>
+
+            
+        </VerticalStackLayout>
+    </Frame>
+</ContentPage>
