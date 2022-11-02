@@ -27,8 +27,7 @@
                     TextColor="Gray"
                     HorizontalOptions="Start"/>
                 <Picker x:Name="rPicker"
-                        ItemsSource="{Binding AllRestaurants}"
-                        ItemDisplayBinding="{Binding RestaurantName}"
+                        
                         Margin="25"
                     HorizontalOptions="Center"/>
             </VerticalStackLayout>

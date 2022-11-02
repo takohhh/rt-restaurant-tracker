@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using rt_restaurant_tracker.Data;
+using rt_restaurant_tracker.ViewModels;
 
 namespace rt_restaurant_tracker;
 

@@ -2,7 +2,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="rt_restaurant_tracker.RestaurantListPage"
+             xmlns:viewmodel="clr-namespace:rt_restaurant_tracker.ViewModels"
              Title="Restaurants">
+        <ContentPage.BindingContext>
+            <viewmodel:MainViewModel />
+        </ContentPage.BindingContext>
+
     <Frame BorderColor="DarkGray" CornerRadius="25" HasShadow="True" VerticalOptions="Fill" Margin="35, 35, 35, 0" Padding="0">
         <VerticalStackLayout Margin="0" Padding="25" HorizontalOptions="Fill" Spacing="10" >
             <Label
@@ -13,11 +18,12 @@
                 Margin="0, 0, 0, 33"
                 HorizontalOptions="Center"/>
 
+            <Label Text="{Binding Text}" TextColor="Red"/>
+            
+
             <VerticalStackLayout Spacing="5" HorizontalOptions="Fill">
-
-                <Label x:Name="asdf" />
-
-                <CollectionView x:Name="rList" ItemsSource="{Binding allRestaurants}">
+                
+                <CollectionView x:Name="rList" ItemsSource="{Binding Restaurants}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -30,15 +36,15 @@
                                     <ColumnDefinition Width="2*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Label Grid.Column="1" Text="{Binding RestaurantName}"/>
+                                <Label Grid.Column="1" Text="{Binding RestaurantDesc}" />
                             </Grid>
 
                         </DataTemplate>
 
                     </CollectionView.ItemTemplate>
-                    
 
                 </CollectionView>
+                
 
             </VerticalStackLayout>
         </VerticalStackLayout>
