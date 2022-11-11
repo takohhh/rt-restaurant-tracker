@@ -55,6 +55,9 @@
 	  <MauiXaml Update="MealHistoryPage.xaml">
 	    <SubType></SubType>
 	  </MauiXaml>
+	  <MauiXaml Update="RestaurantDetailsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="RestaurantListPage.xaml">
 	    <SubType></SubType>
 	  </MauiXaml>

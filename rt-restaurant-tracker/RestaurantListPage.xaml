@@ -3,51 +3,55 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="rt_restaurant_tracker.RestaurantListPage"
              xmlns:viewmodel="clr-namespace:rt_restaurant_tracker.ViewModels"
-             Title="Restaurants">
-        <ContentPage.BindingContext>
-            <viewmodel:MainViewModel />
-        </ContentPage.BindingContext>
-
-    <Frame BorderColor="DarkGray" CornerRadius="25" HasShadow="True" VerticalOptions="Fill" Margin="35, 35, 35, 0" Padding="0">
-        <VerticalStackLayout Margin="0" Padding="25" HorizontalOptions="Fill" Spacing="10" >
-            <Label
-                Style="{StaticResource TitleLabel}"
-                Text="Restaurants"
-                TextColor="{StaticResource Tertiary}"
-                FontAttributes="Bold"
-                Margin="0, 0, 0, 33"
-                HorizontalOptions="Center"/>
-
+             Title="Restaurants"
+             x:Name="ParentView"
+             BackgroundColor="{StaticResource Black}"
+             >
+        
+    <ScrollView>
+        <!--
+        <Frame BorderColor="DarkGray" CornerRadius="25" HasShadow="True" VerticalOptions="Fill" Margin="35, 35, 35, 0" Padding="0">
+        -->
+        <VerticalStackLayout Margin="0" Padding="10" HorizontalOptions="Fill" Spacing="10" >
             <Label Text="{Binding Text}" TextColor="Red"/>
-            
 
-            <VerticalStackLayout Spacing="5" HorizontalOptions="Fill">
-                
+            <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
                 <CollectionView x:Name="rList" ItemsSource="{Binding Restaurants}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="50"/>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                            <Frame BorderColor="{StaticResource Gray600}" CornerRadius="5" BackgroundColor="{StaticResource Gray600}" Margin="10">
+                                <Grid Padding="0" Margin="0" Background="{StaticResource Gray600}" MinimumHeightRequest="100">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="2*"/>
+                                        <RowDefinition Height="5*"/>
                                 </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="2*"/>
-                                    <ColumnDefinition Width="2*"/>
-                                    <ColumnDefinition Width="2*"/>
-                                </Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="8*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                    </Grid.ColumnDefinitions>
 
-                                <Label Grid.Column="1" Text="{Binding RestaurantDesc}" />
-                            </Grid>
+                                    <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource SubTitleLabel}" Text="{Binding RestaurantName}" />
 
+                                    <Label Grid.Row="1" Grid.Column="0"  Style="{StaticResource RegularTextLabel}" Text="{Binding RestaurantDesc}" />
+
+                                    <Button Grid.RowSpan="2" Grid.Column="1" Text=">" IsEnabled="True"
+                                            Command="{Binding BindingContext.CommandWithParam, Source={x:Reference ParentView}}"
+                                            CommandParameter="{Binding RestaurantId}"
+                                            Clicked="Button_Clicked"
+                                            Padding="0" BackgroundColor="AliceBlue" HorizontalOptions="Fill" VerticalOptions="Fill" />
+                                </Grid>
+                            </Frame>
                         </DataTemplate>
 
-                    </CollectionView.ItemTemplate>
+                        </CollectionView.ItemTemplate>
 
-                </CollectionView>
-                
+                    </CollectionView>
+
+
+                </VerticalStackLayout>
 
             </VerticalStackLayout>
-        </VerticalStackLayout>
-    </Frame>
-    
+        <!---->
+    </ScrollView>
+
 </ContentPage>

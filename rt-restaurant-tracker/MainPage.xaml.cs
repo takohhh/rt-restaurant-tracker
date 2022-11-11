@@ -9,6 +9,8 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
+        InitRestaurants();
+        InitMeals();
 	}
 
     void ChangePageBtn_Clicked(System.Object sender, System.EventArgs e)

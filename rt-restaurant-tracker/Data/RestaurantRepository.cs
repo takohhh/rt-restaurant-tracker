@@ -46,6 +46,19 @@ namespace rt_restaurant_tracker.Data
             return null;
         }
 
+        public RestaurantInfo GetRestaurantById(int rId)
+        {
+            List<RestaurantInfo> list = GetAllRestaurants();
+            for (int i = 0; i <= list.Count; i++)
+            {
+                if (list[i].RestaurantId == rId)
+                {
+                    return list[i];
+                }
+            }
+            return null;
+        }
+
         public void Add(RestaurantInfo restaurant)
         {
             conn = new SQLiteConnection(_dbPath);

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="rt_restaurant_tracker.RestaurantDetailsPage"
+             xmlns:viewmodel="clr-namespace:rt_restaurant_tracker.ViewModels"
+             Title="RestaurantDetailsPage">
+    <ContentPage.BindingContext>
+        <viewmodel:MainViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <Label 
+            Text="{Binding Text}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            TextColor="Red"/>
+
+        <Label x:Name="label1" TextColor="Red" />
+
+
+    </VerticalStackLayout>
+</ContentPage>

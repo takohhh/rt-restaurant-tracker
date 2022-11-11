@@ -27,5 +27,10 @@
          
     </TabBar>
 
+    <ShellContent
+        Title=""
+        ContentTemplate="{DataTemplate local:RestaurantDetailsPage}"
+        Route="RestaurantDetailsPage" />
+
 </Shell>
 
