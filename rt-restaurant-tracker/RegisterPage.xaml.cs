@@ -4,14 +4,14 @@ namespace rt_restaurant_tracker;
 
 public partial class RegisterPage : ContentPage
 {
-	public RegisterPage()
-	{
-		InitializeComponent();
-	}
+    public RegisterPage()
+    {
+        InitializeComponent();
+    }
 
     void ChangePageBtn_Clicked(System.Object sender, System.EventArgs e)
     {
-		AppShell.Current.GoToAsync("..");
+        AppShell.Current.GoToAsync("..");
     }
 
     private static void AddUser(string username, string password, string fname, string lname)
@@ -46,13 +46,13 @@ public partial class RegisterPage : ContentPage
                 {
                     errorMessage = "User with username already exists.";
                 }
-                
+
             }
             else
             {
                 errorMessage = "Passwords do not match.";
             }
-            
+
         }
         else
         {

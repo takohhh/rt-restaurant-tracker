@@ -4,18 +4,80 @@
              x:Class="rt_restaurant_tracker.RestaurantDetailsPage"
              xmlns:viewmodel="clr-namespace:rt_restaurant_tracker.ViewModels"
              Title="RestaurantDetailsPage">
-    <ContentPage.BindingContext>
-        <viewmodel:MainViewModel />
-    </ContentPage.BindingContext>
-    <VerticalStackLayout>
-        <Label 
-            Text="{Binding Text}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"
-            TextColor="Red"/>
+    <ScrollView>
+        <VerticalStackLayout>
+<!--image placeholder-->
+            <Border
+                MinimumHeightRequest="200"
+                StrokeThickness="1"
+                BackgroundColor="AliceBlue" >
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="0,20,20,0" />
+                </Border.StrokeShape>
+                <Label Text="image placeholder" TextColor="Grey" HorizontalOptions="Center" VerticalOptions="Center" />
+            </Border>
 
-        <Label x:Name="label1" TextColor="Red" />
+<!--details-->
+            <VerticalStackLayout Padding="20, 10, 10, 20">
+                <Label
+                        Text="{Binding DisplayRestaurant.RestaurantName}"
+                        Style="{StaticResource RegularTextLabel}"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Start"/>
+
+                <Label Margin="0,0,0,10"
+                        Text="{Binding DisplayRestaurant.RestaurantDesc}"
+                            Style="{StaticResource SmallerTextLabel}"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Start"/>
+                <HorizontalStackLayout Spacing="50">
+                    <Label
+                        Text="{Binding DisplayRestaurant.FlavourRating, StringFormat='Flavour: {0}'}"
+                            Style="{StaticResource SmallerTextLabel}"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Start"/>
+
+                    <Label
+                        Text="{Binding DisplayRestaurant.PriceRating, StringFormat='Price: {0}'}"
+                            Style="{StaticResource SmallerTextLabel}"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Start"/>
+                </HorizontalStackLayout>
+
+                <Label
+                        Text="{Binding DisplayRestaurant.OverallRating, StringFormat='Overall: {0}'}"
+                            Style="{StaticResource SmallerTextLabel}"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Start"/>
+            </VerticalStackLayout>
+
+<!--collection-->
+            <VerticalStackLayout BackgroundColor="{StaticResource Gray950}" Padding="20, 10, 20, 10" MinimumHeightRequest="350" >
+                <Label Text="Menu" Style="{StaticResource RegularTextLabel}" />
+                <CollectionView x:Name="mList" ItemsSource="{Binding DisplayMeals}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Padding="10"  Margin="5" BackgroundColor="{StaticResource Gray600}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Style="{StaticResource RegularTextLabel}" Text="{Binding MealName}"/>
+                                </Grid>
+                            </Frame>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+<!---->
+        </VerticalStackLayout>
 
 
-    </VerticalStackLayout>
+        
+
+    </ScrollView>
+
+
+
 </ContentPage>

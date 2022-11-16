@@ -3,37 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="rt_restaurant_tracker.MealHistoryPage"
              Title="MealHistoryPage">
-    <Frame BorderColor="DarkGray" CornerRadius="25" HasShadow="True" VerticalOptions="Fill" Margin="35, 35, 35, 0" Padding="0">
-        <VerticalStackLayout Margin="0" Padding="25" HorizontalOptions="Fill" Spacing="10" >
-            <Label
-                Style="{StaticResource TitleLabel}"
-                Text="Previous reviews"
-                TextColor="{StaticResource Tertiary}"
-                FontAttributes="Bold"
-                Margin="0, 0, 0, 33"
-                HorizontalOptions="Center"/>
-
-            <Picker x:Name="rPicker"
-                    HorizontalOptions="Center"/>
-
-            <VerticalStackLayout Spacing="5" HorizontalOptions="Fill">
-
-                <CollectionView x:Name="reviewsList">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
-
-
-                            </Grid>
-
-                        </DataTemplate>
-
-                    </CollectionView.ItemTemplate>
-                    
-
-                </CollectionView>
-
-            </VerticalStackLayout>
-        </VerticalStackLayout>
-    </Frame>
+    <ScrollView>
+        
+    </ScrollView>
 </ContentPage>

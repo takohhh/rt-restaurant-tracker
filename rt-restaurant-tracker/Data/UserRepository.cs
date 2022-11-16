@@ -30,7 +30,7 @@ namespace rt_restaurant_tracker.Data
         {
             conn = new SQLiteConnection(_dbPath);
             return conn.Get<UserInfo>(id);
-            
+
         }
 
         public UserInfo GetUserByUsername(string username)

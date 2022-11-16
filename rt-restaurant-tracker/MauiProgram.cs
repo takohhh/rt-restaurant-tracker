@@ -1,21 +1,20 @@
 ﻿using CommunityToolkit.Maui;
 using rt_restaurant_tracker.Data;
-using rt_restaurant_tracker.ViewModels;
 
 namespace rt_restaurant_tracker;
 
 public static class MauiProgram
 {
-	public static MauiApp CreateMauiApp()
-	{
-		var builder = MauiApp.CreateBuilder();
-		builder
-			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
-			{
-				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+    public static MauiApp CreateMauiApp()
+    {
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            });
 
         string dbPath = Path.Combine(FileSystem.AppDataDirectory, "rt.db");
 
@@ -34,6 +33,6 @@ public static class MauiProgram
         ActivatorUtilities.CreateInstance<MealRepository>(s, dbPath));
 
         return builder.Build();
-	}
+    }
 }
 

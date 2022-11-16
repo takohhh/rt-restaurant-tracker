@@ -2,15 +2,15 @@
 
 public partial class MealHistoryPage : ContentPage
 {
-	//CollectionView c = new CollectionView();
+    //CollectionView c = new CollectionView();
 
-	public MealHistoryPage()
-	{
-		InitializeComponent();
+    public MealHistoryPage()
+    {
+        InitializeComponent();
     }
 
-	public void InitReviews()
+    public void InitReviews()
     {
 
-	}
+    }
 }

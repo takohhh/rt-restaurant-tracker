@@ -1,6 +1,6 @@
-﻿using System;
+﻿using rt_restaurant_tracker.Models;
+using System;
 using SQLite;
-using rt_restaurant_tracker.Models;
 
 namespace rt_restaurant_tracker.Data
 {

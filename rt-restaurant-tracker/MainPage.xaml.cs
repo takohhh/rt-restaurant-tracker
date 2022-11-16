@@ -1,17 +1,19 @@
-﻿namespace rt_restaurant_tracker;
-
-using rt_restaurant_tracker.Models;
+﻿using rt_restaurant_tracker.Models;
 using rt_restaurant_tracker.Data;
+
+
+namespace rt_restaurant_tracker;
+
 
 public partial class MainPage : ContentPage
 {
 
-	public MainPage()
-	{
-		InitializeComponent();
+    public MainPage()
+    {
+        InitializeComponent();
         InitRestaurants();
         InitMeals();
-	}
+    }
 
     void ChangePageBtn_Clicked(System.Object sender, System.EventArgs e)
     {
@@ -34,7 +36,7 @@ public partial class MainPage : ContentPage
             MealInfo m2 = new MealInfo(1, "Beanie wrap");
             App.MealRepository.Add(m2);
             //caesars
-            MealInfo m3 = new MealInfo(2, "Margerhita pizza");
+            MealInfo m3 = new MealInfo(2, "Margherita pizza");
             App.MealRepository.Add(m3);
             MealInfo m4 = new MealInfo(2, "Arrabiatta pasta");
             App.MealRepository.Add(m4);

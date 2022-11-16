@@ -13,7 +13,7 @@
         <Frame BorderColor="DarkGray" CornerRadius="25" HasShadow="True" VerticalOptions="Fill" Margin="35, 35, 35, 0" Padding="0">
         -->
         <VerticalStackLayout Margin="0" Padding="10" HorizontalOptions="Fill" Spacing="10" >
-            <Label Text="{Binding Text}" TextColor="Red"/>
+            
 
             <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
                 <CollectionView x:Name="rList" ItemsSource="{Binding Restaurants}">
@@ -35,9 +35,8 @@
                                     <Label Grid.Row="1" Grid.Column="0"  Style="{StaticResource RegularTextLabel}" Text="{Binding RestaurantDesc}" />
 
                                     <Button Grid.RowSpan="2" Grid.Column="1" Text=">" IsEnabled="True"
-                                            Command="{Binding BindingContext.CommandWithParam, Source={x:Reference ParentView}}"
+                                            Command="{Binding BindingContext.DisplayRestaurantCommand, Source={x:Reference ParentView}}"
                                             CommandParameter="{Binding RestaurantId}"
-                                            Clicked="Button_Clicked"
                                             Padding="0" BackgroundColor="AliceBlue" HorizontalOptions="Fill" VerticalOptions="Fill" />
                                 </Grid>
                             </Frame>

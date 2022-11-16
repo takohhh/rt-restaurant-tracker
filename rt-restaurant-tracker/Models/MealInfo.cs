@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using SQLite;
 
 namespace rt_restaurant_tracker.Models
