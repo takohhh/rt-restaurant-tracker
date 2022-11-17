@@ -14,13 +14,11 @@ public partial class RegisterPage : ContentPage
         AppShell.Current.GoToAsync("..");
     }
 
-    private static void AddUser(string username, string password, string fname, string lname)
+    private static void AddUser(string username, string password)
     {
         UserInfo newUser = new UserInfo();
         newUser.UserName = username;
         newUser.Password = password;
-        newUser.FirstName = fname;
-        newUser.LastName = lname;
         App.UserRepository.Add(newUser);
     }
 
@@ -30,16 +28,13 @@ public partial class RegisterPage : ContentPage
         string uname = RegisterUsernameEntry.Text;
         string pword = RegisterPasswordEntry.Text;
         string confirmPword = RegisterConfirmPasswordEntry.Text;
-        string fname = RegisterFNameEntry.Text;
-        string lname = RegisterLNameEntry.Text;
-        if (uname != "" && pword != "" &&
-            fname != "" && lname != "")
+        if (uname != "" && pword != "")
         {
             if (pword == confirmPword)
             {
                 if (App.UserRepository.GetUserByUsername(uname) == null)
                 {
-                    AddUser(uname, pword, fname, lname);
+                    AddUser(uname, pword);
                     AppShell.Current.GoToAsync("..");
                 }
                 else

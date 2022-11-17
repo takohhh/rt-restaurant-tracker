@@ -6,6 +6,6 @@ public partial class NewMealPage : ContentPage
     {
         InitializeComponent();
 
-        this.BindingContext = this;
+        this.BindingContext = App.mainViewModel;
     }
 }

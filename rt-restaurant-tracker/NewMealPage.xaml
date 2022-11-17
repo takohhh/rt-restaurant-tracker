@@ -19,15 +19,16 @@
             <VerticalStackLayout Spacing="5" HorizontalOptions="Fill">
                 <Label
                     Text="Restaurant"
-                    TextColor="Black"
+                    Style="{StaticResource RegularTextLabel}"
                     FontAttributes="Bold"
                     HorizontalOptions="Start"/>
                 <Label
                     Text="Pick a restaurant"
-                    TextColor="Gray"
+                    Style="{StaticResource SmallerTextLabel}"
+                    
                     HorizontalOptions="Start"/>
                 <Picker x:Name="rPicker"
-                        
+                        ItemsSource="{Binding Restaurants}"
                         Margin="25"
                     HorizontalOptions="Center"/>
             </VerticalStackLayout>

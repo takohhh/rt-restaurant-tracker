@@ -18,7 +18,7 @@
             </Grid.ColumnDefinitions>
 
             <VerticalStackLayout Grid.Row="0" Grid.ColumnSpan="2" Spacing="50" VerticalOptions="Center">
-                <Label 
+                <Label x:Name="TitleLabel"
                        Text="Restaurant Tracker"
                        Style="{StaticResource TitleLabel}"
                        HorizontalOptions="Center"

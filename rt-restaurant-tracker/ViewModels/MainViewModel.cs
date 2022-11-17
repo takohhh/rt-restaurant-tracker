@@ -45,6 +45,9 @@ namespace rt_restaurant_tracker.ViewModels
 
         [ObservableProperty]
         string text;
+
+        [ObservableProperty]
+        int loggedInUser;
     }
 
 

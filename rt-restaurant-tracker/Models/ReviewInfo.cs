@@ -8,7 +8,7 @@ namespace rt_restaurant_tracker.Models
         [PrimaryKey, AutoIncrement, Column("ReviewId")]
         public int ReviewId { get; set; }
         public int MealId { get; set; }
-        //public int UserId { get; set; }
+        public int UserId { get; set; }
         public int FlavourRating { get; set; }
         public int PriceRating { get; set; }
     }

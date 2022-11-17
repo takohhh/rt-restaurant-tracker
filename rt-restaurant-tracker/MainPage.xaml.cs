@@ -22,7 +22,21 @@ public partial class MainPage : ContentPage
 
     void Button_Clicked(System.Object sender, System.EventArgs e)
     {
-        AppShell.Current.GoToAsync("//HomeMenu");
+        string username = LoginUsernameEntry.Text;
+        string password = LoginPasswordEntry.Text;
+
+        UserInfo user = App.UserRepository.GetUserByUsername(username);
+        if (user != null)
+        {
+            if (user.Password == password)
+            {
+                App.mainViewModel.LoggedInUser = user.UserId;
+                AppShell.Current.GoToAsync("//HomeMenu");
+            }
+            
+        }
+        
+        
     }
 
     void InitMeals()

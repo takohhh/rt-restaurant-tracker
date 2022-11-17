@@ -36,13 +36,17 @@ namespace rt_restaurant_tracker.Data
         public UserInfo GetUserByUsername(string username)
         {
             List<UserInfo> list = GetAllUsers();
-            for (int i = 0; i <= list.Count; i++)
+            if (list.Count > 0)
             {
-                if (list[i].UserName == username)
+                for (int i = 0; i != list.Count; i++)
                 {
-                    return list[i];
+                    if (list[i].UserName == username)
+                    {
+                        return list[i];
+                    }
                 }
             }
+            
             return null;
         }
 

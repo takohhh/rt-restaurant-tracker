@@ -16,7 +16,7 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
 
-        string dbPath = Path.Combine(FileSystem.AppDataDirectory, "rt.db");
+        string dbPath = Path.Combine(FileSystem.AppDataDirectory, "database.db");
 
         builder.UseMauiApp<App>().UseMauiCommunityToolkit();
 
