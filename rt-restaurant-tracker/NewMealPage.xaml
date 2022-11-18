@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="rt_restaurant_tracker.NewMealPage"
@@ -6,57 +6,74 @@
              xmlns:viewmodel="clr-namespace:rt_restaurant_tracker.ViewModels"
              x:DataType="viewmodel:MainViewModel"
              Title="NewMealPage">
-    <Frame BorderColor="DarkGray" CornerRadius="25" HasShadow="True" VerticalOptions="Fill" Margin="35, 35, 35, 0" Padding="0">
-        <VerticalStackLayout Margin="0" Padding="25" HorizontalOptions="Fill" Spacing="10" >
-            <Label
+    <ScrollView>
+        <Frame CornerRadius="10">
+    <VerticalStackLayout Margin="15" Padding="10" HorizontalOptions="Fill" Spacing="10" BackgroundColor="{StaticResource Gray950}" >
+        <Label x:Name="TitleLabel"
+               
                 Style="{StaticResource TitleLabel}"
-                Text="Add a new review"
+                Text="{Binding Text}"
                 TextColor="{StaticResource Tertiary}"
                 FontAttributes="Bold"
                 Margin="0, 0, 0, 33"
                 HorizontalOptions="Center"/>
 
-            <VerticalStackLayout Spacing="5" HorizontalOptions="Fill">
-                <Label
+        <VerticalStackLayout Spacing="5" HorizontalOptions="Fill">
+            <Label
                     Text="Restaurant"
                     Style="{StaticResource RegularTextLabel}"
                     FontAttributes="Bold"
                     HorizontalOptions="Start"/>
-                <Label
+            <Label
                     Text="Pick a restaurant"
                     Style="{StaticResource SmallerTextLabel}"
                     
                     HorizontalOptions="Start"/>
-                <Picker x:Name="rPicker"
-                        ItemsSource="{Binding Restaurants}"
-                        Margin="25"
-                    HorizontalOptions="Center"/>
-            </VerticalStackLayout>
-            <VerticalStackLayout Spacing="5" HorizontalOptions="Fill">
-                <Label
+            <Picker x:Name="rPicker"
+                    ItemsSource="{Binding Restaurants}"
+                    ItemDisplayBinding="{Binding RestaurantName}"
+                    SelectedIndexChanged="Picker_SelectedIndexChanged"
+                    Margin="0,25,0,25"
+                    HorizontalOptions="Start"/>
+                <HorizontalStackLayout Spacing="10">
+                    <Button Style="{StaticResource TealButton}"
+                    Text="Choose restaurant" 
+                    HorizontalOptions="Start"
+                    Command="{Binding ChooseRestaurantCommand}"
+                    CommandParameter="{Binding Source={x:Reference rPicker}, Path=SelectedItem}"
+                    />
+                    <Button Style="{StaticResource TealButton}"
+                    Text="Click this one too" 
+                    HorizontalOptions="Start"
+                    Clicked="Button_Clicked"
+                    />
+                </HorizontalStackLayout>
+        </VerticalStackLayout>
+        <VerticalStackLayout Spacing="5" HorizontalOptions="Fill">
+            <Label
                     Text="Meal"
-                    TextColor="Black"
+                    Style="{StaticResource RegularTextLabel}"
                     FontAttributes="Bold"
                     HorizontalOptions="Start"/>
-                <Label
+            <Label
                     Text="What did you order?"
-                    TextColor="Gray"
+                    Style="{StaticResource SmallerTextLabel}"
                     HorizontalOptions="Start"/>
-                <Picker x:Name="mPicker"
-                        Margin="25"
-                    HorizontalOptions="Center"/>
-            </VerticalStackLayout>
-            <VerticalStackLayout Spacing="5" HorizontalOptions="Fill">
-                <Label
+            <Picker x:Name="mPicker"
+                        Margin="0,25,0,25"
+                    HorizontalOptions="Start"/>
+        </VerticalStackLayout>
+        <VerticalStackLayout Spacing="5" HorizontalOptions="Fill">
+            <Label
                     Text="Flavour rating"
-                    TextColor="Black"
+                    Style="{StaticResource RegularTextLabel}"
                     FontAttributes="Bold"
                     HorizontalOptions="Start"/>
-                <Label
+            <Label
                     Text="Rate the flavour of the meal you ordered (1-5)"
-                    TextColor="Gray"
+                    Style="{StaticResource SmallerTextLabel}"
                     HorizontalOptions="Start"/>
-                <Border
+            <Border
                         Stroke="{StaticResource Tertiary}"
                         StrokeThickness="7"
                         StrokeShape="RoundRectangle 40,40,40,40"
@@ -64,24 +81,24 @@
                         Padding="0"
                         HorizontalOptions="Fill" >
 
-                        <Entry x:Name="FlavourEntry"
+                <Entry x:Name="FlavourEntry"
                             Placeholder="Flavour rating"
                             Keyboard="Numeric"
                             HorizontalTextAlignment="Center">
-                        </Entry>
-                    </Border>
-            </VerticalStackLayout>
-            <VerticalStackLayout Spacing="5" HorizontalOptions="Fill">
-                <Label
+                </Entry>
+            </Border>
+        </VerticalStackLayout>
+        <VerticalStackLayout Spacing="5" HorizontalOptions="Fill">
+            <Label
                     Text="Price rating"
-                    TextColor="Black"
+                    Style="{StaticResource RegularTextLabel}"
                     FontAttributes="Bold"
                     HorizontalOptions="Start"/>
-                <Label
+            <Label
                     Text="Rate the price of the meal (1-5)"
-                    TextColor="Gray"
+                    Style="{StaticResource SmallerTextLabel}"
                     HorizontalOptions="Start"/>
-                <Border
+            <Border
                         Stroke="{StaticResource Tertiary}"
                         StrokeThickness="7"
                         StrokeShape="RoundRectangle 40,40,40,40"
@@ -89,19 +106,21 @@
                         Padding="0"
                         HorizontalOptions="Fill" >
 
-                        <Entry x:Name="PriceEntry"
+                <Entry x:Name="PriceEntry"
                             Placeholder="Price rating"
                             Keyboard="Numeric"
                             HorizontalTextAlignment="Center">
-                        </Entry>
-                    </Border>
-            </VerticalStackLayout>
-            <Button x:Name="NewReviewButton"
+                </Entry>
+            </Border>
+        </VerticalStackLayout>
+        <Button x:Name="NewReviewButton"
                 Text="Submit Review"
+                Clicked="NewReviewButton_Clicked"
                 Margin="25"
                 Style="{StaticResource TealButton}"/>
 
-            
-        </VerticalStackLayout>
-    </Frame>
+
+    </VerticalStackLayout>
+        </Frame>
+    </ScrollView>
 </ContentPage>
