@@ -65,6 +65,12 @@ namespace rt_restaurant_tracker.Data
             conn.Insert(restaurant);
         }
 
+        public void Update(RestaurantInfo restaurant)
+        {
+            conn = new SQLiteConnection(_dbPath);
+            conn.Update(restaurant);
+        }
+
         public void Delete(int id)
         {
             conn = new SQLiteConnection(_dbPath);

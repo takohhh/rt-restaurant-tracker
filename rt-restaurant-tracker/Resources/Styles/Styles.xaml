@@ -86,7 +86,16 @@
         <Setter Property="TextColor" Value="White" />
         <Setter Property="Shadow" Value="5" />
         <Setter Property="CornerRadius" Value="20" />
+        <Setter Property="HorizontalOptions" Value="Fill" />
 
+    </Style>
+
+    <Style TargetType="Border" x:Key="EntryBorder">
+        <Setter Property="Stroke" Value="Gray" />
+        <Setter Property="StrokeThickness" Value="7" />
+        <Setter Property="StrokeShape" Value="RoundRectangle 40,40,40,40" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="5" />
     </Style>
 
     <!--

@@ -2,185 +2,46 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="rt_restaurant_tracker.RegisterPage"
-             BackgroundColor="Teal"
-             NavigationPage.HasBackButton="False">
+             Title="Register">
 
     <ScrollView>
-
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="7*" />
-                <RowDefinition Height="1.5*" />
-                <RowDefinition Height="8*" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-
-            <VerticalStackLayout Grid.Row="0" Grid.ColumnSpan="2" Spacing="50" VerticalOptions="Center">
-                <Label 
-                       Text="Restaurant Tracker"
-                       Style="{StaticResource TitleLabel}"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center" />
-
-                <Image
-                    Source="dotnet_bot.png"
-                    SemanticProperties.Description="logo"
-                    Margin="0, 0, 0, 45"
-                    HeightRequest="100"
-                    HorizontalOptions="Center" />
-            </VerticalStackLayout>
-
-            <!--left button-->
-            <BoxView Grid.Row="1"
-                    Color="Snow"
-                    CornerRadius="20, 0, 0, 0"/>
-            <VerticalStackLayout Grid.Row="1" Spacing="0"
-                                 VerticalOptions="Center">
-                <Button
-                    x:Name="ChangePageBtn"    
-                    Grid.Row="1" 
-                    Clicked="ChangePageBtn_Clicked"
-                    BackgroundColor="Snow"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="Fill"
-                        Text="Login"
-                        TextColor="Teal"
-                        FontSize="22"
-                        FontAttributes="Bold"/>
-                
-                
-                <Line Stroke="Gray"
-                      StrokeThickness="5"
-                      X1="0"
-                      X2="2000" />
-            </VerticalStackLayout>
-
-
-            <!--right button-->
-            <BoxView Grid.Row="1" Grid.Column="1"
-                    Color="Snow"
-                    CornerRadius="0, 20, 0, 0"/>
-            <VerticalStackLayout Grid.Row="1" Grid.Column="1" Spacing="0"
-                                 VerticalOptions="Center">
-                <Button
-                    Grid.Row="1" Grid.Column="1"
-                    IsEnabled="False"
-                    BackgroundColor="Snow"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="Fill"
-                        Text="Register"
-                        TextColor="Teal"
-                        FontSize="22"
-                        FontAttributes="Bold"/>
-                
-                
-                <Line Stroke="Teal"
-                      StrokeThickness="5"
-                      X1="0"
-                      X2="2000" />
-            </VerticalStackLayout>
-
-            <BoxView Grid.Row="2"
-                     Grid.ColumnSpan="2"
-                     Color="Snow" />
-
-            <!--register section-->
-
-            
-            <Grid Grid.Row="2" Grid.ColumnSpan="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="5*"/>
-                    <ColumnDefinition Width="2*"/>
-
-                </Grid.ColumnDefinitions>
-
-                <VerticalStackLayout Grid.Column="1" Spacing="33" Padding="10">
-                <Border 
-                    Stroke="Gray"
-                    StrokeThickness="7"
-                    StrokeShape="RoundRectangle 40,40,40,40"
-                    Padding="0" >
-
-                    <Entry x:Name="RegisterUsernameEntry"
-                        Placeholder="Username"
-                        HorizontalTextAlignment="Center">
-
-                    </Entry>
-                    </Border>
-                
-                    <Border
+        <VerticalStackLayout Spacing="10"  Padding="10">
+            <Border
                         Stroke="Gray"
                         StrokeThickness="7"
                         StrokeShape="RoundRectangle 40,40,40,40"
                         Padding="0"
+                Margin="5"
                         HorizontalOptions="Fill" >
-
-                        <Entry x:Name="RegisterPasswordEntry"
+                <Entry x:Name="RegisterUsernameEntry"
+                            Placeholder="Username"
+                            HorizontalTextAlignment="Center" />
+            </Border>
+            <Border Stroke="Gray"
+                        StrokeThickness="7"
+                        StrokeShape="RoundRectangle 40,40,40,40"
+                        Padding="0"
+                    Margin="5"
+                        HorizontalOptions="Fill" >
+                <Entry x:Name="RegisterPasswordEntry"
                             Placeholder="Password"
-                            HorizontalTextAlignment="Center"
-                               IsPassword="True">
-
-                        </Entry>
-                    </Border>
-
-                    <Border
-                        Stroke="Gray"
-                        StrokeThickness="7"
-                        StrokeShape="RoundRectangle 40,40,40,40"
-                        Padding="0"
+                            HorizontalTextAlignment="Center" />
+            </Border>
+            <Border Style="{StaticResource EntryBorder}"
                         HorizontalOptions="Fill" >
+                <Entry x:Name="RegisterConfirmPasswordEntry"
+                            Placeholder="Confirm password"
+                            HorizontalTextAlignment="Center" />
+            </Border>
+            <Button x:Name="RegisterBtn"
+                Text="Register"
+                Style="{StaticResource TealButton}"
+                Clicked="RegisterBtn_Clicked"
+                    Margin="5"/>
 
-                        <Entry x:Name="RegisterConfirmPasswordEntry"
-                            Placeholder="Password"
-                            HorizontalTextAlignment="Center"
-                               IsPassword="True">
-
-                        </Entry>
-                    </Border>
-
-                    <Border
-                        Stroke="Gray"
-                        StrokeThickness="7"
-                        StrokeShape="RoundRectangle 40,40,40,40"
-                        Padding="0"
-                        HorizontalOptions="Fill" >
-
-                        <Entry x:Name="RegisterFNameEntry"
-                            Placeholder="First name"
-                            HorizontalTextAlignment="Center">
-
-                        </Entry>
-                    </Border>
-
-                    <Border
-                        Stroke="Gray"
-                        StrokeThickness="7"
-                        StrokeShape="RoundRectangle 40,40,40,40"
-                        Padding="0"
-                        HorizontalOptions="Fill" >
-
-                        <Entry x:Name="RegisterLNameEntry"
-                            Placeholder="Last name"
-                            HorizontalTextAlignment="Center">
-
-                        </Entry>
-                    </Border>
-
-                    <Button
-                        Text="Register"
-                        Style="{StaticResource TealButton}"
-                        Clicked="RegisterBtn_Clicked" />
-
-                    <Label x:Name="ErrorMessage"
-                           TextColor="Red" />
-                </VerticalStackLayout>
-                    
-            </Grid>
-        </Grid>
+            <Label x:Name="ErrorMessage"
+                   TextColor="Red" />
+        </VerticalStackLayout>
     </ScrollView>
 
 </ContentPage>

@@ -10,7 +10,7 @@ namespace rt_restaurant_tracker.Models
             //needed parameterless constructor
         }
 
-        public ReviewInfo(int mealId, string resName, string mealName, int userId, int flavour, int price)
+        public ReviewInfo(int mealId, int userId, string resName, string mealName,  int flavour, int price)
         {
             this.MealId = mealId;
             this.RestaurantName = resName;
@@ -23,9 +23,9 @@ namespace rt_restaurant_tracker.Models
         [PrimaryKey, AutoIncrement, Column("ReviewId")]
         public int ReviewId { get; set; }
         public int MealId { get; set; }
+        public int UserId { get; set; }
         public string RestaurantName { get; set; }
         public string MealName { get; set; }
-        public int UserId { get; set; }
         public int FlavourRating { get; set; }
         public int PriceRating { get; set; }
     }

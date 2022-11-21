@@ -2,11 +2,12 @@
 
 public partial class MealHistoryPage : ContentPage
 {
-    //CollectionView c = new CollectionView();
 
     public MealHistoryPage()
     {
         InitializeComponent();
+
+        this.BindingContext = App.mainViewModel;
     }
 
     public void InitReviews()

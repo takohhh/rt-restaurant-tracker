@@ -2,141 +2,41 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="rt_restaurant_tracker.MainPage"
-             
-             BackgroundColor="Teal">
+             Title="Login">
 
     <ScrollView>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="7*" />
-                <RowDefinition Height="1.5*" />
-                <RowDefinition Height="8*" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-
-            <VerticalStackLayout Grid.Row="0" Grid.ColumnSpan="2" Spacing="50" VerticalOptions="Center">
-                <Label x:Name="TitleLabel"
-                       Text="Restaurant Tracker"
-                       Style="{StaticResource TitleLabel}"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center" />
-
-                <Image
-                    Source="dotnet_bot.png"
-                    SemanticProperties.Description="logo"
-                    Margin="0, 0, 0, 45"
-                    HeightRequest="100"
-                    HorizontalOptions="Center" />
-            </VerticalStackLayout>
-
-            <!--left button-->
-            <BoxView Grid.Row="1"
-                    Color="Snow"
-                    CornerRadius="20, 0, 0, 0"/>
-            <VerticalStackLayout Grid.Row="1" Spacing="0"
-                                 VerticalOptions="Center">
-                <Button
-                    Grid.Row="1"
-                    IsEnabled="False"
-                    BackgroundColor="Snow"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="Fill"
-                        Text="Login"
-                        TextColor="Teal"
-                        FontSize="22"
-                        FontAttributes="Bold"/>
-                
-                
-                <Line Stroke="Teal"
-                      StrokeThickness="5"
-                      X1="0"
-                      X2="2000" />
-            </VerticalStackLayout>
-
-
-            <!--right button-->
-            <BoxView Grid.Row="1" Grid.Column="1"
-                    Color="Snow"
-                    CornerRadius="0, 20, 0, 0"/>
-            <VerticalStackLayout Grid.Row="1" Grid.Column="1" Spacing="0"
-                                 VerticalOptions="Center">
-                <Button
-                    Grid.Row="1" Grid.Column="1"
-                    x:Name="ChangePageBtn"    
-                    Clicked="ChangePageBtn_Clicked"
-                    IsEnabled="True"
-                    BackgroundColor="Snow"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="Fill"
-                        Text="Register"
-                        TextColor="Teal"
-                        FontSize="22"
-                        FontAttributes="Bold"/>
-                
-                
-                <Line Stroke="Gray"
-                      StrokeThickness="5"
-                      X1="0"
-                      X2="2000" />
-            </VerticalStackLayout>
-
-            <BoxView Grid.Row="2"
-                     Grid.ColumnSpan="2"
-                     Color="Snow" />
-
-            <!--login section-->
-
-            
-            <Grid Grid.Row="2" Grid.ColumnSpan="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="5*"/>
-                    <ColumnDefinition Width="2*"/>
-
-                </Grid.ColumnDefinitions>
-
-                <VerticalStackLayout Grid.Column="1" Spacing="33" Padding="10">
-                <Border 
-                    Stroke="Gray"
-                    StrokeThickness="7"
-                    StrokeShape="RoundRectangle 40,40,40,40"
-                    Padding="0" >
-
-                    <Entry x:Name="LoginUsernameEntry"
-                        Placeholder="Username"
-                        Text="{Binding userLoggedIn}"
-                        HorizontalTextAlignment="Center">
-
-                    </Entry>
-                    </Border>
-                
-                    <Border
+        <VerticalStackLayout Spacing="10"  Padding="10">
+            <Border
                         Stroke="Gray"
                         StrokeThickness="7"
                         StrokeShape="RoundRectangle 40,40,40,40"
                         Padding="0"
+                Margin="5"
                         HorizontalOptions="Fill" >
-
-                        <Entry x:Name="LoginPasswordEntry"
+                <Entry x:Name="LoginUsernameEntry"
+                            Placeholder="Username"
+                            HorizontalTextAlignment="Center" />
+            </Border>
+            <Border Stroke="Gray"
+                        StrokeThickness="7"
+                        StrokeShape="RoundRectangle 40,40,40,40"
+                        Padding="0"
+                    Margin="5"
+                        HorizontalOptions="Fill" >
+                <Entry x:Name="LoginPasswordEntry"
                             Placeholder="Password"
-                            HorizontalTextAlignment="Center">
-
-                        </Entry>
-                    </Border>
-
-                    <Button
-                        Text="Login"
-                        Style="{StaticResource TealButton}"
-                        Clicked="Button_Clicked" />
-
-                    <Label Text="{Binding UserLoggedIn}"/>
-                </VerticalStackLayout>
-                    
-            </Grid>
-        </Grid>
+                            HorizontalTextAlignment="Center" />
+            </Border>
+            <Button Text="Login"
+                Style="{StaticResource TealButton}"
+                Clicked="Button_Clicked"
+                    Margin="5"/>
+            <Button Text="Create Account"
+                Style="{StaticResource TealButton}"
+                Clicked="ChangePageBtn_Clicked"
+                    Margin="25,5,25,5"
+                    VerticalOptions="End"/>
+        </VerticalStackLayout>
     </ScrollView>
 
 </ContentPage>
