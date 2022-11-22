@@ -26,6 +26,21 @@ namespace rt_restaurant_tracker.Data
             return conn.Table<ReviewInfo>().ToList();
         }
 
+        public List<ReviewInfo> GetAllReviewsWithUserId(int userId)
+        {
+            List<ReviewInfo> allReviews = GetAllReviews();
+            List<ReviewInfo> list = new List<ReviewInfo>();
+            for (int i = 0; i <= allReviews.Count; i++)
+            {
+                if (allReviews[i].UserId == userId)
+                {
+                    list.Add(allReviews[i]);
+                }
+            }
+            return list;
+
+        }
+
         public ReviewInfo GetReview(int id)
         {
             conn = new SQLiteConnection(_dbPath);
