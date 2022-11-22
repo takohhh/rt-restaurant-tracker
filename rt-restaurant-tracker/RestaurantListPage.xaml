@@ -13,8 +13,8 @@
         <Frame BorderColor="DarkGray" CornerRadius="25" HasShadow="True" VerticalOptions="Fill" Margin="35, 35, 35, 0" Padding="0">
         -->
         <VerticalStackLayout Margin="0" Padding="10" HorizontalOptions="Fill" Spacing="10" >
-            
 
+            <Label x:Name="labelwithname"/>
             <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
                 <CollectionView x:Name="rList" ItemsSource="{Binding Restaurants}">
                         <CollectionView.ItemTemplate>

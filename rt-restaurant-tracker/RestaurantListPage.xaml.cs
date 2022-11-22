@@ -9,6 +9,7 @@ public partial class RestaurantListPage : ContentPage
 
         //get bound 2 
         this.BindingContext = App.mainViewModel;
+        labelwithname.Text = App.CurrentUser.ToString();
     }
 
 }

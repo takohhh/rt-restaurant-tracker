@@ -30,7 +30,7 @@ namespace rt_restaurant_tracker.Data
         {
             List<ReviewInfo> allReviews = GetAllReviews();
             List<ReviewInfo> list = new List<ReviewInfo>();
-            for (int i = 0; i <= allReviews.Count; i++)
+            for (int i = 0; i < allReviews.Count; i++)
             {
                 if (allReviews[i].UserId == userId)
                 {

@@ -14,13 +14,14 @@ public partial class App : Application
     //public static RestaurantInfo SelectedRestaurant { get; set; }
     public static MainViewModel mainViewModel;
 
+    public static int CurrentUser { get; set; }
+
 
     public App(
         UserRepository userRepository,
         ReviewRepository reviewRepository,
         RestaurantRepository restaurantRepository,
         MealRepository mealRepository
-        //RestaurantInfo selectedRestaurant
         )
     {
         InitializeComponent();

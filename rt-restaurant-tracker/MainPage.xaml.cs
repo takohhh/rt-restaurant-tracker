@@ -30,6 +30,7 @@ public partial class MainPage : ContentPage
         {
             if (user.Password == password)
             {
+                App.CurrentUser = user.UserId;
                 App.mainViewModel.LoggedInUser = user.UserId;
                 AppShell.Current.GoToAsync("//HomeMenu");
             }

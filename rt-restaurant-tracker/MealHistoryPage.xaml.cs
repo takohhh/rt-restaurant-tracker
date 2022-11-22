@@ -1,4 +1,6 @@
-﻿namespace rt_restaurant_tracker;
+﻿using rt_restaurant_tracker.ViewModels;
+
+namespace rt_restaurant_tracker;
 
 public partial class MealHistoryPage : ContentPage
 {
@@ -7,11 +9,6 @@ public partial class MealHistoryPage : ContentPage
     {
         InitializeComponent();
 
-        this.BindingContext = App.mainViewModel;
-    }
-
-    public void InitReviews()
-    {
-
+        this.BindingContext = new MainViewModel();
     }
 }

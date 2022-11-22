@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using rt_restaurant_tracker.Models;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -20,7 +21,7 @@ namespace rt_restaurant_tracker.ViewModels
             List<RestaurantInfo> list = App.RestaurantRepository.GetAllRestaurants();
             Restaurants = new ObservableCollection<RestaurantInfo>(list);
 
-            List<ReviewInfo> reviewList = App.ReviewRepository.GetAllReviews();
+            List<ReviewInfo> reviewList = App.ReviewRepository.GetAllReviewsWithUserId(App.CurrentUser);
             Reviews = new ObservableCollection<ReviewInfo>(reviewList);
 
         }
